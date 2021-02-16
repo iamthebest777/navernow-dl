@@ -1,2 +1,3 @@
-# navernowpy
+# NAVER NOW PY
 NAVER NOW LIVE STREAM DOWNLOADER
+Requires Streamlink
