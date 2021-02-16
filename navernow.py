@@ -1,19 +1,15 @@
 #!/usr/bin/env python3
 
-# 효정 - 'NAVER NOW: AGIT' Downloader
-
 import requests 
 import datetime
 import os
 import argparse
 import time
-import subprocess
 
 parser=argparse.ArgumentParser()
 parser.add_argument('--channel', required=True)
 args = parser.parse_args()
 
-#CHANNEL_CODE = 913
 CHANNEL_CODE = args.channel
 
 DATE = datetime.datetime.now().strftime("%y%m%d")
@@ -31,11 +27,13 @@ while True:
 	STATUS = live_data['status']
 		
 	if STATUS == "ONAIR":
+		
 		VIDEO_STREAM_URL = live_data['videoStreamUrl']
 		TITLE = info_data['title']['text'].replace("\r\n"," ")
 		SHOW_NAME = info_data["home"]["title"]["text"]
 		HOST_NAME = info_data["home"]["title"]["subtext"]
 		num = info_data["count"].replace("회","")
+		
 		if len(num) == 1:
 			EP_NUM="E0%s"%num
 		else:
