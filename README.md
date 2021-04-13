@@ -1,11 +1,12 @@
 # NAVER NOW PY
 NAVER NOW LIVE STREAM DOWNLOADER<br>
-Requires Streamlink
+Requires Streamlink & FFmpeg
 
 ### Requirements
 
 ```
 pip install streamlink
+pip install ffmpeg
 ```
 
 ### Usage
