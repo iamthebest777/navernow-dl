@@ -60,33 +60,6 @@ def decrypt_url(ct_b64):
 	DECRYPTED = decrypt(ct_b64, KEY).decode('utf-8')
 	return DECRYPTED
 
-def send_email(msg,subject,isfrom,isto):
-	import smtplib
-	from email.mime.text import MIMEText
-	
-	ACCID = "s1531178@student.mcckc.edu"
-	APPPW = "nbayfksuzojllocx"
-	
-	if isfrom == "ME":
-		isfrom = ACCID
-	else:
-		pass
-	if isto == "ME":
-		isto = ACCID
-	else:
-		pass
-	
-	s = smtplib.SMTP('smtp.gmail.com', 587)
-	s.starttls()
-	s.login(ACCID, APPPW)
-	
-	message = MIMEText(msg)
-	message['Subject'] = subject
-	s.sendmail(isfrom,isto,message.as_string())
-	print("Successfully Sent Email!")
-	s.quit()
-
-#CHANNEL_CODE = 913
 CHANNEL_CODE = args.channel
 DATE = datetime.datetime.now().strftime("%y%m%d")
 LIVE_URL = "https://now.naver.com/api/nnow/v2/stream/%s/livestatus/"%CHANNEL_CODE
@@ -129,19 +102,6 @@ while True:
 print("\nStarting Download...\n")
 
 cmd='streamlink -o "%s" "%s" best'%(FILE_NAME,VIDEO_STREAM_URL)
-time.sleep(2)
+time.sleep(1)
 os.system(cmd)
 print("Download Completed")
-
-print("Moving File to Google Drive..")
-
-mv_cmd = 'rclone move "/home/ubuntu/%s" "OMG_DATA:03 VIDEO DATA/TEMP/AGIT_TEMP" -P -v'%FILE_NAME
-os.system(mv_cmd)
-
-print("Process Done!")
-LOG = '''
-FILENAME: %s
-STATUS: Successfully Downloaded and Uploaded it to Google Drive!
-
-@ Proudly Done by HYPE'''%FILE_NAME
-send_email(LOG,"[NAVER NOW. DOWNLOADER] TASK REPORT", "ME", "ME")
