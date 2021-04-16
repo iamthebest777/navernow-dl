@@ -98,7 +98,6 @@ while True:
 		time.sleep(1)
 		
 		
-
 print("\nStarting Download...\n")
 
 cmd='streamlink -o "%s" "%s" best'%(FILE_NAME,VIDEO_STREAM_URL)
