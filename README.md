@@ -1,12 +1,10 @@
-# NAVER NOW PY
+# NAVER NOW - DL
 NAVER NOW LIVE STREAM DOWNLOADER<br>
-Requires Streamlink & FFmpeg
 
 ### Requirements
 
 ```
-pip install streamlink
-pip install ffmpeg
+$ pip install streamlink ffmpeg
 ```
 
 ### Usage
