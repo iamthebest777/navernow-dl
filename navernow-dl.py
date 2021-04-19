@@ -74,7 +74,7 @@ while True:
 	info_data = info_data["contentList"][0]
 	STATUS = live_data['status']
 	if STATUS == "ONAIR":
-		VIDEO_STREAM_URL = live_data['streamUrl'].replace('playlist.m3u8', 'chunklist_1080p.m3u8')
+		VIDEO_STREAM_URL = live_data['streamUrl']
 		VIDEO_STREAM_URL = decrypt_url(VIDEO_STREAM_URL)
 		TITLE = info_data['title']['text'].replace("\r\n"," ").replace("w/","with").replace("W/","with").replace("/","").replace('"',"'")
 		SHOW_NAME = info_data["home"]["title"]["text"]
