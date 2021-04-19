@@ -4,7 +4,7 @@ NAVER NOW LIVE STREAM DOWNLOADER<br>
 ## Requirements
 
 ```
-$ pip install streamlink ffmpeg
+$ pip install streamlink ffmpeg pycryptodomex pycryptodome
 ```
 
 ## Usage
